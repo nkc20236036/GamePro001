@@ -16,14 +16,21 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int key = 0;
-        if (Input.GetKey(KeyCode.UpArrow)) key = 1;
-        if (Input.GetKey(KeyCode.DownArrow)) key = -1;
-        if (Input.GetKey(KeyCode.RightArrow)) key = 1;
-        if (Input.GetKey(KeyCode.LeftArrow)) key = -1;
-
-        float speedx = Mathf.Abs(this.rigid2D.velocity.x);
-
-     
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Translate(0, -0.03f, 0);
+        }
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Translate(0, 0.03f, 0);
+        }
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            transform.Translate(-0.03f,0,0);
+        }
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            transform.Translate(0.03f, 0, 0);
+        }
     }
 }
