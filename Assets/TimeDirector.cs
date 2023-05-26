@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class TimeDirector : MonoBehaviour
 {
-    GameObject Time_gauge;
+    GameObject Time;
 
     // Start is called before the first frame update
     void Start()
     {
-        this.Time_gauge = GameObject.Find("Time_gauge");
+        this.Time = GameObject.Find("Time");
     }
     public void DecreaseTime()
     {
-        this.Time_gauge.GetComponent<Image>().fillAmount -= 0.1f;
+        this.Time.GetComponent<Image>().fillAmount -= 0.1f;
     }
 
     // Update is called once per frame
