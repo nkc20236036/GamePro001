@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
         float r2 = 1.0f;
         if (d < r1 + r2)
         {
-            GameObject director = GameObject.Find("TimeDirector");
+            GameObject director = GameObject.Find("Time");
             director.GetComponent<TimeDirector>().DecreaseTime();
 
             Destroy(gameObject);
