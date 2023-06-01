@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,30 +9,46 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D  rigid2D;
+    Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         rigid2D = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
+
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
+        float speed = 0.05f;
+        transform.position += new Vector3(x * speed, y * speed, 0);
+
+        if (y == 0)
         {
-            transform.Translate(0, -0.03f, 0);
+            anim.Play("Player");
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        else if (y == -1)
         {
-            transform.Translate(0, 0.03f, 0);
+            anim.Play("PlayerR");
         }
-        if (Input.GetKey(KeyCode.UpArrow))
+        else
         {
-            transform.Translate(-0.03f,0,0);
+            anim.Play("PlayerL2");
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (x == 0)
         {
-            transform.Translate(0.03f, 0, 0);
+            anim.Play("Player");
+        }
+        else if(x == 1)
+        {
+            anim.Play("PlayerR");
+        }
+        else
+        {
+            anim.Play("PlayerL2");
         }
     }
 }

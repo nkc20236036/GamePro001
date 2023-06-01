@@ -9,8 +9,8 @@ public class EnemyGenerator : MonoBehaviour
     float span = 1.0f;
     float delta = 0;
     
-// Start is called before the first frame update
-void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         
     }
@@ -26,5 +26,6 @@ void Start()
             int px = Random.Range(-6, 7);
             go.transform.position = new Vector3(10, px, 0);
         }
+        
     }
 }
